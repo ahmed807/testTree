@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { TreeTableComponent } from './tree-table/tree-table.component';
+export const routes: Routes = [
+  {
+    path: '',
+    component: TreeTableComponent,
+    title: 'Tree',
+  },
+];
