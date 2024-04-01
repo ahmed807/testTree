@@ -3,12 +3,14 @@
     [value]="files"
     [scrollable]="true"
     [tableStyle]="{ 'min-width': '50rem' }"
+    styleClass="p-treetable-gridlines"
   >
     <ng-template pTemplate="header">
       <tr>
         <th>Name</th>
         <th>Size</th>
         <th>Type</th>
+        <th>ID</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
@@ -19,7 +21,11 @@
         </td>
         <td>{{ rowData.size }}</td>
         <td>{{ rowData.type }}</td>
+        <td>{{ rowData.id }}</td>
       </tr>
     </ng-template>
   </p-treeTable>
 </div>
+<section>
+  <router-outlet></router-outlet>
+</section>
