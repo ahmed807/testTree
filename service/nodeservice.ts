@@ -508,14 +508,13 @@ export class NodeService {
         data: {
           name: 'Applications',
           size: '200mb',
-          type: 'Folder',
         },
         children: [
           {
             data: {
               name: 'Angular',
-              size: '25mb',
               type: 'Folder',
+              id: '1231',
             },
             children: [
               {
