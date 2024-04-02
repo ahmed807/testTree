@@ -1,36 +1,60 @@
 <div class="card">
   <p-treeTable
     [value]="files"
+    [columns]="selectedColumns"
     [scrollable]="true"
     [tableStyle]="{ 'min-width': '50rem' }"
-    styleClass="p-treetable-gridlines"
+    selectionMode="single"
+    [(selection)]="selectedFile"
+    [reorderableColumns]="true"
   >
-    <ng-template pTemplate="header">
+    <ng-template pTemplate="caption">
+      <div style="text-align: left">
+        <p-multiSelect [options]="cols"></p-multiSelect>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
       <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Type</th>
-        <th>ID</th>
+        <th
+          *ngFor="let col of columns"
+          [ttSortableColumn]="col.field"
+          ttReorderableColumn
+        >
+          {{ col.header }}
+          <p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>
+        </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+    <ng-template
+      pTemplate="body"
+      let-rowNode
+      let-rowData="rowData"
+      let-columns="columns"
+    >
       <tr [ttRow]="rowNode">
-        <td *ngFor="let col of columns; let i = index; let last = last">
+        <td
+          *ngFor="let col of columns; let i = index; let last = last"
+          ttEditableColumn
+          [ttEditableColumnDisabled]="i == 0 || i == 1"
+        >
           <p-treeTableToggler
             [rowNode]="rowNode"
             *ngIf="i === 0"
           ></p-treeTableToggler>
-          {{ rowData[col.field] }}
+          <p-treeTableCellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="rowData[col.field]" />
+            </ng-template>
+            <ng-template pTemplate="output">{{
+              rowData[col.field]
+            }}</ng-template>
+          </p-treeTableCellEditor>
           <ng-container *ngIf="last">
             <p-button
-              icon="pi pi-search"
-              [rounded]="true"
-              [style]="{ 'margin-right': '.5em' }"
-            ></p-button>
-            <p-button
-              icon="pi pi-pencil"
+              icon="pi pi-plus"
               [rounded]="true"
               severity="success"
+              (onClick)="addChild(rowNode)"
             ></p-button>
           </ng-container>
         </td>
