@@ -10,7 +10,15 @@
   >
     <ng-template pTemplate="caption">
       <div style="text-align: left">
-        <p-multiSelect [options]="cols"></p-multiSelect>
+        <p-multiSelect
+          [options]="cols"
+          [(ngModel)]="selectedColumns"
+          optionLabel="header"
+          selectedItemsLabel="{0} columns selected"
+          [style]="{ width: '20em' }"
+          placeholder="Choose Columns"
+          display="chip"
+        ></p-multiSelect>
       </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
