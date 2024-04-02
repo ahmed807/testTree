@@ -15,13 +15,25 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
       <tr [ttRow]="rowNode">
-        <td>
-          <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
-          {{ rowData.name }}
+        <td *ngFor="let col of columns; let i = index; let last = last">
+          <p-treeTableToggler
+            [rowNode]="rowNode"
+            *ngIf="i === 0"
+          ></p-treeTableToggler>
+          {{ rowData[col.field] }}
+          <ng-container *ngIf="last">
+            <p-button
+              icon="pi pi-search"
+              [rounded]="true"
+              [style]="{ 'margin-right': '.5em' }"
+            ></p-button>
+            <p-button
+              icon="pi pi-pencil"
+              [rounded]="true"
+              severity="success"
+            ></p-button>
+          </ng-container>
         </td>
-        <td>{{ rowData.size }}</td>
-        <td>{{ rowData.type }}</td>
-        <td>{{ rowData.id }}</td>
       </tr>
     </ng-template>
   </p-treeTable>
