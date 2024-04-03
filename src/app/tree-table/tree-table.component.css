@@ -1,0 +1,25 @@
+td {
+  padding: 0.3rem 0rem;
+}
+
+tr[aria-level="2"] td:first-child,
+tr[aria-level="3"] td:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+tr[aria-level="2"] td:last-child,
+tr[aria-level="3"] td:last-child {
+  border-radius: 0 6px 6px 0;
+}
+tr[aria-level="2"], tr[aria-level="3"]{
+  border: 0.5rem solid white;
+}
+
+tr[aria-level="2"] td {
+  background-color: var(--tertiary-color);
+}
+
+tr[aria-level="3"] td {
+  background-color: var(--primary-color);
+  color: var(--white);
+}

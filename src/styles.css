@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeicons/primeicons.css";
+
+:root {
+  --primary-color: #0854A0;
+  --secondary-color: #0066CC;
+  --tertiary-color: #E5F0FA;
+  --quaternary-color: #354A5F;
+  --grey-1: #F5F5F5;
+  --grey-2: #F7F7F7;
+  --grey-3: #E7E7E7;
+  --grey-4: #6F6F6F;
+  --bg-light: #FAFAFA;
+  --white: #fff;
+  --dark: #32363A
+}
+
+
 html {
   font-size: 14px;
 }
@@ -8,7 +25,7 @@ body {
   font-family: var(--font-family);
   font-weight: normal;
   background: var(--surface-ground);
-  color: var(--text-color);
+  color: var(--dark);
   padding: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,4 +36,30 @@ body {
   padding: 2rem;
   border-radius: 10px;
   margin-bottom: 1rem;
+}
+
+.p-treetable-scrollable-view{
+background-color: var(--white);
+
+}
+.p-treetable-thead {
+  border-radius: 6px 6px 0px 0px;
+  border: 1px solid var(--grey-3);
+  background-color: var(--grey-2);
+}
+
+.p-treetable-scrollable-body {
+  border: 1px solid var(--grey-3);
+  border-top: 0;
+}
+.p-treetable .p-treetable-thead > tr > th{
+  color: var(--grey-4);
+}
+
+.p-treetable .p-sortable-column.p-highlight{
+  color: var(--primary-color);
+}
+
+.p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon{
+  color: var(--primary-color);
 }
