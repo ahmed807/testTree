@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
@@ -35,7 +35,6 @@ export class TreeTableComponent implements OnInit {
   cols!: Column[];
   selectedColumns!: Column[];
   selectedFile!: TreeNode;
-  text!: string;
   example: TreeNode = {
     data: {
       name: 'ssssssss.app',
@@ -44,7 +43,10 @@ export class TreeTableComponent implements OnInit {
     },
   };
 
-  constructor(private nodeService: NodeService) {}
+  constructor(
+    private nodeService: NodeService,
+    private cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.nodeService.getFilesystem().then((files) => (this.files = files));
@@ -52,13 +54,26 @@ export class TreeTableComponent implements OnInit {
       { field: 'name', header: 'Name' },
       { field: 'size', header: 'Size' },
       { field: 'type', header: 'Type' },
-      { field: '', header: '' },
     ];
     this.selectedColumns = this.cols;
   }
-  addChild(event: NodeEvent) {
-    console.log(event.node.children);
-    event.node.children!.push(this.example);
+  addChild() {
+    // console.log(event.node.children);
+    // event.node.children!.push(this.example);
+    if (this.selectedFile) {
+      let temp: TreeNode = {
+        data: {
+          name: this.selectedFile.data.name,
+          size: '25mb',
+          type: 'Application',
+        },
+      };
+
+      this.selectedFile.children!.push(this.example);
+      this.files = [...this.files];
+      this.cd.markForCheck();
+      // console.log("Added child in ",this.selectedFile,"you can find in",this.filesTree2);
+    }
     // if (this.selectedFile && this.text) {
     //   this.example.label = this.text;
     //   this.selectedFile.children!.push(this.example);

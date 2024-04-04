@@ -20,6 +20,12 @@
           display="chip"
         ></p-multiSelect>
       </div>
+      <p-button
+        icon="pi pi-plus"
+        [rounded]="true"
+        severity="success"
+        (onClick)="addChild()"
+      ></p-button>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
@@ -39,7 +45,7 @@
       let-rowData="rowData"
       let-columns="columns"
     >
-      <tr [ttRow]="rowNode">
+      <tr [ttRow]="rowNode" [ttSelectableRow]="rowNode">
         <td
           *ngFor="let col of columns; let i = index; let last = last"
           ttEditableColumn
@@ -57,14 +63,6 @@
               rowData[col.field]
             }}</ng-template>
           </p-treeTableCellEditor>
-          <ng-container *ngIf="last">
-            <p-button
-              icon="pi pi-plus"
-              [rounded]="true"
-              severity="success"
-              (onClick)="addChild(rowNode)"
-            ></p-button>
-          </ng-container>
         </td>
       </tr>
     </ng-template>
