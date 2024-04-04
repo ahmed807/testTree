@@ -506,34 +506,56 @@ export class NodeService {
     return [
       {
         data: {
-          name: 'Applications',
-          size: '200mb',
+          name: 'Section One: General',
         },
         children: [
           {
             data: {
-              name: 'Angular',
+              name: 'Schedule NO.1: Fan Foundation',
               type: 'Folder',
               id: '1231',
             },
             children: [
               {
                 data: {
-                  name: 'angular.app',
+                  name: 'Earthworks',
+                  size: '10mb',
+                  type: 'Application',
+                },
+                children: [
+                  {
+                    data: {
+                      name: 'Clear and strip site',
+                      size: '10mb',
+                      type: 'Application',
+                    },
+                  },
+                  {
+                    data: {
+                      name: 'Clear and strip site',
+                      size: '10mb',
+                      type: 'Application',
+                    },
+                  },
+                  {
+                    data: {
+                      name: 'Clear and strip site',
+                      size: '5mb',
+                      type: 'Application',
+                    },
+                  },
+                ],
+              },
+              {
+                data: {
+                  name: 'Concrete Formwork & Reinforcing',
                   size: '10mb',
                   type: 'Application',
                 },
               },
               {
                 data: {
-                  name: 'cli.app',
-                  size: '10mb',
-                  type: 'Application',
-                },
-              },
-              {
-                data: {
-                  name: 'mobile.app',
+                  name: 'Formwork & Reinforcing',
                   size: '5mb',
                   type: 'Application',
                 },
@@ -542,14 +564,14 @@ export class NodeService {
           },
           {
             data: {
-              name: 'editor.app',
+              name: 'Schedule NO.2: Fan Foundation',
               size: '25mb',
               type: 'Application',
             },
           },
           {
             data: {
-              name: 'settings.app',
+              name: 'Schedule NO.3: Fan Foundation',
               size: '50mb',
               type: 'Application',
             },

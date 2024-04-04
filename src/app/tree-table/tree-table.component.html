@@ -1,4 +1,5 @@
 <div class="card">
+
   <p-treeTable
     [value]="files"
     [columns]="selectedColumns"
@@ -15,12 +16,12 @@
           [(ngModel)]="selectedColumns"
           optionLabel="header"
           selectedItemsLabel="{0} columns selected"
-          [style]="{ width: '20em' }"
           placeholder="Choose Columns"
           display="chip"
         ></p-multiSelect>
       </div>
     </ng-template>
+
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th
@@ -61,8 +62,9 @@
             <p-button
               icon="pi pi-plus"
               [rounded]="true"
-              severity="success"
+              [outlined]="true"
               (onClick)="addChild(rowNode)"
+              class="add-button"
             ></p-button>
           </ng-container>
         </td>

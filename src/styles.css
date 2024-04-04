@@ -26,16 +26,14 @@ body {
   font-weight: normal;
   background: var(--surface-ground);
   color: var(--dark);
-  padding: 1rem;
+  padding: 0;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .card {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  padding: 0 2rem;
 }
 
 .p-treetable-scrollable-view{
@@ -62,4 +60,19 @@ background-color: var(--white);
 
 .p-treetable .p-sortable-column.p-highlight .p-sortable-column-icon{
   color: var(--primary-color);
+}
+.p-treetable .p-treetable-tbody > tr[aria-level="3"] > td .p-treetable-toggler{
+  color: var(--white);
+}
+
+.p-treetable .p-treetable-tbody > tr[aria-level="3"] > td .p-treetable-toggler:enabled:hover{
+  color: var(--primary-color);
+}
+
+.add-button .p-button.p-button-icon-only.p-button-rounded{
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

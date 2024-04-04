@@ -11,7 +11,10 @@ tr[aria-level="2"] td:last-child,
 tr[aria-level="3"] td:last-child {
   border-radius: 0 6px 6px 0;
 }
-tr[aria-level="2"], tr[aria-level="3"]{
+
+tr[aria-level="2"],
+tr[aria-level="3"],
+tr[aria-level="4"] {
   border: 0.5rem solid white;
 }
 
@@ -23,3 +26,10 @@ tr[aria-level="3"] td {
   background-color: var(--primary-color);
   color: var(--white);
 }
+
+tr[aria-level="4"] td {
+  background-color: var(--grey-1);
+  border-radius: var(--grey-2);
+  padding: 0.15rem 0rem;
+}
+

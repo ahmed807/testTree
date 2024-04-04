@@ -1,1 +1,21 @@
-<p class="header">header works!</p>
+<nav class="navbar">
+
+  <div class="logo">
+    <img src="../../assets/icons/SAP-Logo.svg" alt="Logo">
+  </div>
+
+<div class="menu">
+  <div class="page-title">
+    {{ pageTitle }}
+  </div>
+  <div class="tabs">
+    <ul>
+      <li [ngClass]="{ 'active': activeTab === 'Tab1' }"><a (click)="changeTab('Tab1')">BOQ list</a></li>
+      <li [ngClass]="{ 'active': activeTab === 'Tab2' }"><a (click)="changeTab('Tab2')">Resource Library Management</a></li>
+      <li [ngClass]="{ 'active': activeTab === 'Tab3' }"><a (click)="changeTab('Tab3')">Adjudicator Package Manager</a></li>
+      <li [ngClass]="{ 'active': activeTab === 'Tab4' }"><a (click)="changeTab('Tab4')">Summary Report</a></li>
+
+    </ul>
+  </div>
+</div>
+</nav>
